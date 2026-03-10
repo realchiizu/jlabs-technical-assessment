@@ -164,7 +164,7 @@ function Login({ onLogin }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:8000/api/login', { email, password });
+      const res = await axios.post('https://jlabs-api-ochre.vercel.app/api/login', { email, password });
       if (res.data.success) onLogin();
     } catch (err) { setError("Invalid credentials. Hint: test@example.com"); }
   };
