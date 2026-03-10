@@ -40,3 +40,12 @@ app.post('/api/login', (req, res) => {
 app.listen(PORT, () => {
     console.log(`✅ Server is running on http://localhost:${PORT}`);
 });
+
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(PORT, () => {
+        console.log(`Server running on http://localhost:${PORT}`);
+    });
+}
+
+// THIS IS THE KEY: Export the app for Vercel
+module.exports = app;
