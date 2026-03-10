@@ -48,7 +48,6 @@ const floatingCardStyle = {
 };
 
 
-// Fix for the missing marker icon bug in Leaflet
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
@@ -56,7 +55,6 @@ L.Icon.Default.mergeOptions({
   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
 });
 
-// This helper component moves the map view when the coordinates change
 function RecenterMap({ coords }) {
   const map = useMap();
   map.setView(coords, 13);
@@ -67,7 +65,7 @@ function Home() {
   const [geoData, setGeoData] = useState(null);
   const [searchIp, setSearchIp] = useState('');
   const [history, setHistory] = useState([]);
-  const [mapCoords, setMapCoords] = useState([14.35, 121.05]); // Default coords (Laguna area!)
+  const [mapCoords, setMapCoords] = useState([14.35, 121.05]); // Default coords
 
   useEffect(() => {
     fetchLocation();
@@ -155,7 +153,7 @@ function Home() {
   );
 }
 
-// --- LOGIN COMPONENT ---
+
 function Login({ onLogin }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
